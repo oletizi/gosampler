@@ -14,7 +14,7 @@ func TestBasics(t *testing.T) {
 	cwd, err := os.Getwd()
 	log.Printf("working directory: cwd: %v, err: %v", cwd, err)
 
-	path := filepath.Join(cwd, "../test/midi/jesu.mid")
+	path := filepath.Join(cwd, "test/midi/jesu.mid")
 	assert.NotNil(path)
 
 	LoadFile(path)

@@ -1,8 +1,9 @@
 package osampler
 
 import (
-	"gitlab.com/gomidi/midi/reader"
 	"log"
+
+	"gitlab.com/gomidi/midi/reader"
 )
 
 type printer struct{}
