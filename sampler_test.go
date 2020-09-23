@@ -1,21 +1,17 @@
 package osampler
 
 import (
-	"log"
-	"os"
-	"path/filepath"
 	"testing"
 
-	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
+
+	"osampler/test"
 )
 
-func TestBasics(t *testing.T) {
-	assert := assert.New(t)
-	cwd, err := os.Getwd()
-	log.Printf("working directory: cwd: %v, err: %v", cwd, err)
-
-	path := filepath.Join(cwd, "test/midi/jesu.mid")
-	assert.NotNil(path)
-
-	LoadFile(path)
+func TestSamplerBasics(t *testing.T) {
+	require := require.New(t)
+	path := test.ResolvePath("midi/jesu.mid")
+	require.FileExistsf(path, "Test file missing: %v", path)
+	err := LoadFile(path)
+	require.Nil(err)
 }

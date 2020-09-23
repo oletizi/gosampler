@@ -1,24 +1,50 @@
-GOCMD=go
-GOBUILD=$(GOCMD) build
-GOCLEAN=$(GOCMD) clean
-GOTEST=$(GOCMD) test
-GOGET=$(GOCMD) get
-BINARY_NAME=osampler
+.PHONY: all test cover
 
-all: test build
+all: get build test
 
 default: all
 
+get:
+	go get ./...
+
 build:
-	$(GOBUILD) -o $(BINARY_NAME)
+	go build ./...
 
 test:
-	go test -v -coverage ./...
+	go test ./... -v -coverprofile .coverage.txt
+	go tool cover -func .coverage.txt
+
 
 clean:
 	$(GOCLEAN)
 	rm -f $(BINARY_NAME)
 
+install:
+	go install ./...
+
 run:
 	$(GOBUILD) -o $(BINARY_NAME) -v ./...
 	./$(BINARY_NAME)
+
+cover: test
+	go tool cover
+
+#.PHONY: all test coverage
+#
+#all: get build install
+#
+#get:
+#	go get ./...
+#
+#build:
+#	go build ./...
+#
+#install:
+#	go install ./...
+#
+#test:
+#	go test ./... -v -coverprofile .coverage.txt
+#	go tool cover -func .coverage.txt
+#
+#coverage: test
+#	go tool cover -html=.coverage.txt
