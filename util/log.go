@@ -18,13 +18,13 @@ func GetLogger() Logger {
 type logger struct{}
 
 func (l *logger) Error(msg ...interface{}) {
-	log.Print(msg)
+	log.Print(msg...)
 }
 
 func (l *logger) Fatal(msg ...interface{}) {
-	log.Fatal(msg)
+	log.Fatal(msg...)
 }
 
 func (l *logger) Info(msg ...interface{}) {
-	log.Print(msg)
+	log.Print(msg...)
 }
