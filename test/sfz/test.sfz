@@ -16,8 +16,13 @@ hikey=24
 
 
 <region>
-sample=sample/25-36.wav
+sample=sample/25-30.wav
 lokey=25
+hikey=30
+
+<region>
+sample=sample/27-36.wav
+lokey=27
 hikey=36
 
 <region>

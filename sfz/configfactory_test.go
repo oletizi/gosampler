@@ -36,6 +36,13 @@ func TestNewConfigFactory(t *testing.T) {
 	theNote, _ = note.New(20)
 	samples = config.SamplesFor(theNote)
 	ass.Equal(expected, samples)
+
+	// Test for overlapping regions
+	expected[0] = sample.New(samplePath("sample/25-30.wav"))
+	expected = append(expected, sample.New(samplePath("sample/27-36.wav")))
+	theNote, _ = note.New(29)
+	samples = config.SamplesFor(theNote)
+	ass.Equal(expected, samples)
 }
 
 func samplePath(path string) string {
