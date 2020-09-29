@@ -10,7 +10,7 @@ bend_down=-1200
 ampeg_release=0.800
 
 <region>
-sample=sample/12-24.wav
+sample=sample/13-24.wav
 lokey=12
 hikey=24
 

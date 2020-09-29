@@ -26,8 +26,15 @@ func TestNewConfigFactory(t *testing.T) {
 	theNote, err := note.New(37)
 	ass.Nil(err)
 
+	// Test for key=
 	samples := config.SamplesFor(theNote)
 	ass.NotNil(samples)
+	ass.Equal(expected, samples)
+
+	// Test for key range
+	expected[0] = sample.New(samplePath("sample/13-24.wav"))
+	theNote, _ = note.New(20)
+	samples = config.SamplesFor(theNote)
 	ass.Equal(expected, samples)
 }
 
