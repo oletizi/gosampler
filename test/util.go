@@ -1,7 +1,6 @@
 package test
 
 import (
-	"log"
 	"path"
 	"path/filepath"
 
@@ -12,6 +11,5 @@ import (
 func ResolvePath(subpath string) string {
 	filename := util.MyPath()
 	rv := filepath.Join(path.Dir(filename), subpath)
-	log.Printf("Resolved path: %v", rv)
 	return rv
 }

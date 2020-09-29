@@ -2,11 +2,14 @@ package sfz
 
 import (
 	"log"
+	"path/filepath"
 	"testing"
 
 	"github.com/stretchr/testify/require"
 
-	note2 "osampler/note"
+	"osampler"
+	"osampler/note"
+	"osampler/sample"
 	"osampler/test"
 )
 
@@ -17,11 +20,18 @@ func TestNewConfigFactory(t *testing.T) {
 	ass.NotNil(config)
 	ass.Nil(err)
 
-	note, err := note2.New(21)
+	var expected []osampler.Sample
+	expected = append(expected, sample.New(samplePath("sample/37.wav")))
+
+	theNote, err := note.New(37)
 	ass.Nil(err)
 
-	log.Printf("calling SamplesFor(%v)", note)
-	samples := config.SamplesFor(note)
+	samples := config.SamplesFor(theNote)
 	ass.NotNil(samples)
-	log.Printf("samples: %v", samples)
+	ass.Equal(expected, samples)
+}
+
+func samplePath(path string) string {
+	rv := test.ResolvePath(filepath.Join("sfz", path))
+	return rv
 }

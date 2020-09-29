@@ -14,34 +14,33 @@ import (
 )
 
 type samplerConfig struct {
-	regions []region
+	regions []*region
 }
 
 func (s *samplerConfig) SamplesFor(note osampler.Note) []osampler.Sample {
 	var samples []osampler.Sample
 	for i := 0; i < len(s.regions); i++ {
 		region := s.regions[i]
-		log.Printf("====> region: sample: %v", region.sample)
 		// XXX: THer MUST be a more elegant way to do this
 		lokey := region.lokey
 		key := region.key
 		hikey := region.hikey
 		theSample := region.sample
-		if (key != nil && note == *key ||
-			(lokey != nil && note.Value() >= (*lokey).Value()) ||
-			(hikey != nil && note.Value() <= (*hikey).Value())) &&
+		if (key != nil && note == key ||
+			(lokey != nil && note.Value() >= lokey.Value() &&
+				(hikey != nil && note.Value() <= hikey.Value()))) &&
 			theSample != nil {
-			samples = append(samples, *theSample)
+			samples = append(samples, theSample)
 		}
 	}
 	return samples
 }
 
 type region struct {
-	sample         *osampler.Sample
-	hikey          *osampler.Note
-	key            *osampler.Note
-	lokey          *osampler.Note
+	sample         osampler.Sample
+	hikey          osampler.Note
+	key            osampler.Note
+	lokey          osampler.Note
 	hivel          int
 	lovel          int
 	pitchKeycenter int
@@ -81,10 +80,9 @@ func (s *sfzListener) ExitHeader(ctx *parser.HeaderContext) {
 	header := ctx.GetText()
 	switch header {
 	case "region":
-		if s.currentRegion != nil {
-			s.cfg.regions = append(s.cfg.regions, *s.currentRegion)
-		}
-		s.currentRegion = &region{}
+		region := &region{}
+		s.currentRegion = region
+		s.cfg.regions = append(s.cfg.regions, region)
 	}
 }
 
@@ -99,21 +97,27 @@ func (s *sfzListener) ExitValue(ctx *parser.ValueContext) {
 	case "sample":
 		filename := filepath.Clean(filepath.Join(s.basedir, ctx.GetText()))
 		theSample := sample.New(filename)
-		s.currentRegion.sample = &theSample
+		s.currentRegion.sample = theSample
 
+	case "key":
+		key, err := resolveNote(ctx.GetText())
+		if err != nil {
+			log.Printf("Error parsing note value: %v", err)
+		}
+		s.currentRegion.key = key
 	case "lokey":
 		lokey, err := resolveNote(ctx.GetText())
 		if err != nil {
 			log.Printf("Error parsing note value: %v", err)
 		}
-		s.currentRegion.lokey = &lokey
+		s.currentRegion.lokey = lokey
 
 	case "hikey":
 		hikey, err := resolveNote(ctx.GetText())
 		if err != nil {
 			log.Printf("Error parsing note value: %v", err)
 		}
-		s.currentRegion.hikey = &hikey
+		s.currentRegion.hikey = hikey
 
 	}
 }

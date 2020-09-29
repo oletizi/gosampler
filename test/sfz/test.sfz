@@ -10,25 +10,16 @@ bend_down=-1200
 ampeg_release=0.800
 
 <region>
-sample=arco\arco_c1_pp_down.wav
+sample=sample/12-24.wav
 lokey=12
 hikey=24
-hivel=15
-pitch_keycenter=24
 
 
 <region>
-sample=arco\arco_c1_pp_up.wav
-lokey=12
-hikey=24
-hivel=15
-pitch_keycenter=24
-
+sample=sample/25-36.wav
+lokey=25
+hikey=36
 
 <region>
-sample=arco\arco_c1_p_down.wav
-lokey=12
-hikey=24
-lovel=16
-hivel=59
-pitch_keycenter=24
+sample=sample/37.wav
+key=37
