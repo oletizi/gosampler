@@ -77,4 +77,16 @@ func TestReadWrite(t *testing.T) {
 	}
 
 	t.Logf("wrote file://%v", outfileName)
+
+	expected, err := os.Open(outfileName)
+	ass.Nil(err)
+	ass.NotNil(expected)
+
+	d := aiff.NewDecoder(expected)
+	ass.NotNil(d)
+	d.ReadInfo()
+	ass.Equal(in.SampleRate, d.SampleRate)
+	ass.Equal(in.BitDepth, d.BitDepth)
+	ass.Equal(in.NumChans, d.NumChans)
+	ass.Equal(in.Encoding, d.Encoding)
 }
