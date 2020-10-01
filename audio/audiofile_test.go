@@ -3,8 +3,11 @@ package audio
 import (
 	"io"
 	"io/ioutil"
+	"math"
 	"os"
+	"strconv"
 	"testing"
+	"time"
 
 	"github.com/go-audio/aiff"
 	"github.com/go-audio/audio"
@@ -31,14 +34,11 @@ func TestReadWrite(t *testing.T) {
 	t.Logf("channels * sample frames: %v", uint32(in.NumChans)*in.NumSampleFrames)
 	t.Logf("pcm size: %v", in.PCMSize)
 
-	var buf *audio.IntBuffer = &audio.IntBuffer{
+	buf := &audio.IntBuffer{
 		Format:         in.Format(),
 		Data:           make([]int, bufSize),
 		SourceBitDepth: int(in.BitDepth),
 	}
-	err = in.FwdToPCM()
-	ass.Nil(err)
-
 	outfile, err := ioutil.TempFile("", "test-*.aif")
 	ass.Nil(err)
 	outfileName := outfile.Name()
@@ -89,4 +89,59 @@ func TestReadWrite(t *testing.T) {
 	ass.Equal(in.BitDepth, d.BitDepth)
 	ass.Equal(in.NumChans, d.NumChans)
 	ass.Equal(in.Encoding, d.Encoding)
+}
+
+func TestGenAndWrite(t *testing.T) {
+	ass := require.New(t)
+	outfile, err := ioutil.TempFile("", "test-"+strconv.FormatInt(time.Now().Unix(), 10)+"-*.aif")
+	ass.Nil(err)
+	outfileName := outfile.Name()
+
+	bufferSize := 512
+
+	ctx := NewContext(44100, 16, 1)
+	buf := NewBuffer(ctx, bufferSize)
+	iterations := 2 ^ 256
+	out := aiff.NewEncoder(outfile, ctx.SampleRate(), ctx.BitDepth(), ctx.ChannelCount())
+
+	outBuf := audio.IntBuffer{
+		Format:         audio.FormatMono44100,
+		Data:           make([]int, bufferSize),
+		SourceBitDepth: ctx.BitDepth(),
+	}
+	for b := 0; b < iterations; b++ {
+		fillBuffer(buf)
+		copyBuffer(buf, outBuf)
+		err := out.Write(&outBuf)
+		ass.Nil(err)
+	}
+	err = out.Close()
+	ass.Nil(err)
+
+	err = outfile.Close()
+	ass.Nil(err)
+
+	t.Logf("wrote file://%v", outfileName)
+}
+
+func copyBuffer(a Buffer, b audio.IntBuffer) audio.IntBuffer {
+	for i := 0; i < a.Size(); i++ {
+		b.Data[i] = int(a.Data()[i])
+	}
+	return b
+}
+
+func fillBuffer(buf Buffer) {
+	var amplitude float64 = 2500
+	var frequency float64 = 440
+
+	var phase float64 = 0
+	var deltaTime = 1 / float64((buf.Context()).SampleRate())
+	var currentTime float64 = 0
+
+	for sample := 0; sample < buf.Size(); sample++ {
+		v := amplitude * math.Sin(2*math.Pi*frequency*currentTime+phase)
+		buf.Data()[sample] = v
+		currentTime += deltaTime
+	}
 }
