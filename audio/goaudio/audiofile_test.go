@@ -1,18 +1,17 @@
-package audio
+package goaudio
 
 import (
 	"io"
 	"io/ioutil"
 	"math"
 	"os"
-	"strconv"
 	"testing"
-	"time"
 
 	"github.com/go-audio/aiff"
 	"github.com/go-audio/audio"
 	"github.com/stretchr/testify/require"
 
+	audio2 "osampler/audio"
 	"osampler/test"
 )
 
@@ -93,14 +92,14 @@ func TestReadWrite(t *testing.T) {
 
 func TestGenAndWrite(t *testing.T) {
 	ass := require.New(t)
-	outfile, err := ioutil.TempFile("", "test-"+strconv.FormatInt(time.Now().Unix(), 10)+"-*.aif")
+	outfile, err := test.TempFile("test-*.aif") //ioutil.TempFile("", "test-"+strconv.FormatInt(time.Now().Unix(), 10)+"-*.aif")
 	ass.Nil(err)
 	outfileName := outfile.Name()
 
 	bufferSize := 512
 
-	ctx := NewContext(44100, 16, 1)
-	buf := NewBuffer(ctx, bufferSize)
+	ctx := audio2.NewContext(44100, 16, 1)
+	buf := audio2.NewBuffer(ctx, bufferSize)
 	iterations := 2 ^ 256
 	out := aiff.NewEncoder(outfile, ctx.SampleRate(), ctx.BitDepth(), ctx.ChannelCount())
 
@@ -124,14 +123,14 @@ func TestGenAndWrite(t *testing.T) {
 	t.Logf("wrote file://%v", outfileName)
 }
 
-func copyBuffer(a Buffer, b audio.IntBuffer) audio.IntBuffer {
+func copyBuffer(a audio2.Buffer, b audio.IntBuffer) audio.IntBuffer {
 	for i := 0; i < a.Size(); i++ {
 		b.Data[i] = int(a.Data()[i])
 	}
 	return b
 }
 
-func fillBuffer(buf Buffer) {
+func fillBuffer(buf audio2.Buffer) {
 	var amplitude float64 = 2500
 	var frequency float64 = 440
 

@@ -1,8 +1,14 @@
 package test
 
 import (
+	"io/ioutil"
+	"log"
+	"os"
 	"path"
 	"path/filepath"
+	"strconv"
+	"strings"
+	"time"
 
 	"osampler/util"
 )
@@ -12,4 +18,12 @@ func ResolvePath(subpath string) string {
 	filename := util.MyPath()
 	rv := filepath.Join(path.Dir(filename), subpath)
 	return rv
+}
+
+// Wrapper around ioutil.TempFile to add a timestamp so temp files will sort by name properly
+func TempFile(pattern string) (*os.File, error) {
+	timestamp := strconv.FormatInt(time.Now().Unix(), 10) + "-*"
+	timestampedPattern := strings.ReplaceAll(pattern, "*", timestamp)
+	log.Printf("pattern: %v; timestamp: %v; timestamp pattern: %v", pattern, timestamp, timestampedPattern)
+	return ioutil.TempFile("", timestampedPattern)
 }

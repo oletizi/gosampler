@@ -8,7 +8,6 @@ import (
 )
 
 type sin struct {
-	amplitude float64
 	frequency float64
 	phase     float64
 
@@ -18,21 +17,21 @@ type sin struct {
 	bufferTime  float64
 }
 
-func New(amplitude float64, frequency float64, phase float64, context audio.Context, buffer audio.Buffer) transform.Transform {
-	return sin{amplitude: amplitude,
+func New(buffer audio.Buffer, frequency float64, phase float64) transform.Transform {
+	return sin{
+		buf:         buffer,
 		frequency:   frequency,
 		phase:       phase,
-		ctx:         context,
-		buf:         buffer,
+		ctx:         buffer.Context(),
 		currentTime: 0,
 		bufferTime:  1 / float64(buffer.Context().SampleRate()),
 	}
 }
 
-func (s sin) CalculateBuffer(b audio.Buffer) {
+func (s sin) CalculateBuffer() {
 
 	for sample := 0; sample < s.buf.Size(); sample++ {
-		v := s.amplitude * math.Sin(2*math.Pi*s.frequency*s.currentTime+s.phase)
+		v := math.Sin(2*math.Pi*s.frequency*s.currentTime + s.phase)
 		s.buf.Data()[sample] = v
 		s.currentTime += s.bufferTime
 	}
