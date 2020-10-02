@@ -11,15 +11,15 @@ type gain struct {
 }
 
 func New(buffer audio.Buffer, factor float64) transform.Transform {
-	return gain{buffer, factor}
+	return &gain{buffer, factor}
 }
 
-func (g gain) CalculateBuffer() {
+func (g *gain) CalculateBuffer() {
 	for i, v := range g.buffer.Data() {
 		g.buffer.Data()[i] = g.factor * v
 	}
 }
 
-func (g gain) Buffer() audio.Buffer {
+func (g *gain) Buffer() audio.Buffer {
 	return g.buffer
 }
