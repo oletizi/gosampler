@@ -3,10 +3,10 @@ package sin
 import (
 	"testing"
 
-	"github.com/go-audio/aiff"
 	"github.com/stretchr/testify/require"
 
 	"osampler/audio"
+	"osampler/audio/goaudio"
 	"osampler/test"
 )
 
@@ -29,14 +29,19 @@ func TestBasics(t *testing.T) {
 	ass.NotNil(outfile)
 	filename := outfile.Name()
 
-	out := aiff.NewEncoder(outfile, sampleRate, bitDepth, channelCount)
-
+	out := goaudio.NewAiffSink(context, outfile)
 	iterations := 100
 
 	for i := 0; i < iterations; i++ {
 		transform.CalculateBuffer()
-
+		err := out.Write(transform.Buffer())
+		ass.Nil(err)
 	}
+	err = out.Close()
+	ass.Nil(err)
+
+	err = outfile.Close()
+	ass.Nil(err)
 
 	t.Logf("Wrote file://%v", filename)
 }
