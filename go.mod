@@ -8,7 +8,9 @@ require (
 	github.com/faiface/beep v1.0.2
 	github.com/go-audio/aiff v1.0.0
 	github.com/go-audio/audio v1.0.0
+	github.com/gordonklaus/portaudio v0.0.0-20200911161147-bb74aa485641 // indirect
 	github.com/kr/pretty v0.1.0 // indirect
+	github.com/mrnikho/yingo v0.0.0-20160422163436-d60704a7faa2
 	github.com/oletizi/sfz-parser v0.0.0-20200929210351-19fd8d01ede8
 	github.com/stretchr/testify v1.6.1
 	gopkg.in/check.v1 v1.0.0-20180628173108-788fd7840127 // indirect
