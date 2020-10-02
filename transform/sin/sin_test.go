@@ -34,7 +34,12 @@ func TestBasics(t *testing.T) {
 
 	for i := 0; i < iterations; i++ {
 		transform.CalculateBuffer()
-		err := out.Write(transform.Buffer())
+		b := transform.Buffer()
+		// add gain manually for now
+		for sample := 0; sample < b.Size(); sample++ {
+			b.Data()[sample] = b.Data()[sample] * 1000
+		}
+		err := out.Write(b)
 		ass.Nil(err)
 	}
 	err = out.Close()

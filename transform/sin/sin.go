@@ -22,7 +22,7 @@ func (s sin) Buffer() audio.Buffer {
 }
 
 func New(buffer audio.Buffer, frequency float64, phase float64) transform.Transform {
-	return sin{
+	return &sin{
 		buf:         buffer,
 		frequency:   frequency,
 		phase:       phase,
@@ -32,8 +32,7 @@ func New(buffer audio.Buffer, frequency float64, phase float64) transform.Transf
 	}
 }
 
-func (s sin) CalculateBuffer() {
-
+func (s *sin) CalculateBuffer() {
 	for sample := 0; sample < s.buf.Size(); sample++ {
 		v := math.Sin(2*math.Pi*s.frequency*s.currentTime + s.phase)
 		s.buf.Data()[sample] = v

@@ -19,6 +19,7 @@ func TestBasics(t *testing.T) {
 	ass.Equal(2, buf.Size())
 }
 
+// make sure data survives intact when passing by value
 func assertZeroOne(ass *require.Assertions, b Buffer) {
 	ass.Equal(float64(0), b.Data()[0])
 	ass.Equal(float64(1), b.Data()[1])
