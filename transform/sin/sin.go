@@ -17,10 +17,6 @@ type sin struct {
 	bufferTime  float64
 }
 
-func (s *sin) Buffer() audio.Buffer {
-	return s.buf
-}
-
 func New(buffer audio.Buffer, frequency float64, phase float64) transform.Transform {
 	return &sin{
 		buf:         buffer,

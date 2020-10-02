@@ -5,7 +5,7 @@ import (
 	"osampler/transform"
 )
 
-// I suppose we could call this a multiplexer
+// I suppose we could call this a multiplexer, but this is audio, not electronics
 type mixer struct {
 	inputs []audio.Buffer
 	output audio.Buffer
@@ -17,10 +17,6 @@ func (m *mixer) CalculateBuffer() {
 			m.output.Data()[i] += v
 		}
 	}
-}
-
-func (m *mixer) Buffer() audio.Buffer {
-	panic("implement me")
 }
 
 func New(inputs []audio.Buffer, output audio.Buffer) transform.Transform {

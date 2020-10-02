@@ -19,7 +19,3 @@ func (g *gain) CalculateBuffer() {
 		g.buffer.Data()[i] = g.factor * v
 	}
 }
-
-func (g *gain) Buffer() audio.Buffer {
-	return g.buffer
-}
