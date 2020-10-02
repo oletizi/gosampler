@@ -29,3 +29,8 @@ func TestBasics(t *testing.T) {
 	ass.Equal(a.Data()[0]+b.Data()[0], output.Data()[0])
 	ass.Equal(a.Data()[1]+b.Data()[1], output.Data()[1])
 }
+
+func TestMixAudioFiles(t *testing.T) {
+	//ass := require.New(t)
+
+}

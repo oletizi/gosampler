@@ -51,7 +51,6 @@ type region struct {
 //
 
 type sfzListener struct {
-	// TODO: Figure out why this voodoo works
 	*parser.BaseSfzListener
 
 	cfg           *samplerConfig
