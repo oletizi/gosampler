@@ -6,8 +6,8 @@ import (
 	"github.com/stretchr/testify/require"
 
 	"osampler/audio"
-	"osampler/audio/goaudio"
 	"osampler/test"
+	"osampler/transform/file"
 	"osampler/transform/gain"
 )
 
@@ -32,14 +32,14 @@ func TestBasics(t *testing.T) {
 	ass.Nil(err)
 	ass.NotNil(outfile)
 	filename := outfile.Name()
+	out := file.NewAiffOutput(buffer, outfile)
 
-	out := goaudio.NewAiffSink(context, outfile)
 	iterations := 100
 
 	for i := 0; i < iterations; i++ {
 		sinTransform.CalculateBuffer()
 		gainTransform.CalculateBuffer()
-		err := out.Write(buffer)
+		out.CalculateBuffer()
 		ass.Nil(err)
 	}
 	err = out.Close()
