@@ -16,7 +16,7 @@ func TestBasics(t *testing.T) {
 	data[0] = 1
 	data[1] = .5
 	factor := float64(1000)
-	gain := New(c, b, factor)
+	gain := New(b, factor)
 	ass.NotNil(gain)
 	ass.Equal(1.0, b.Data()[0])
 	ass.Equal(.5, b.Data()[1])

@@ -8,6 +8,7 @@ import (
 	"osampler/audio"
 	"osampler/audio/goaudio"
 	"osampler/test"
+	"osampler/transform/gain"
 )
 
 func TestBasics(t *testing.T) {
@@ -21,8 +22,11 @@ func TestBasics(t *testing.T) {
 	frequency := 440
 	phase := 0
 
-	transform := New(buffer, float64(frequency), float64(phase))
-	ass.NotNil(transform)
+	sinTransform := New(buffer, float64(frequency), float64(phase))
+	ass.NotNil(sinTransform)
+
+	gainFactor := 10000.0
+	gainTransform := gain.New(buffer, gainFactor)
 
 	outfile, err := test.TempFile("test-*.aif")
 	ass.Nil(err)
@@ -33,13 +37,9 @@ func TestBasics(t *testing.T) {
 	iterations := 100
 
 	for i := 0; i < iterations; i++ {
-		transform.CalculateBuffer()
-		b := transform.Buffer()
-		// add gain manually for now
-		for sample := 0; sample < b.Size(); sample++ {
-			b.Data()[sample] = b.Data()[sample] * 1000
-		}
-		err := out.Write(b)
+		sinTransform.CalculateBuffer()
+		gainTransform.CalculateBuffer()
+		err := out.Write(buffer)
 		ass.Nil(err)
 	}
 	err = out.Close()

@@ -6,13 +6,12 @@ import (
 )
 
 type gain struct {
-	context audio.Context
-	buffer  audio.Buffer
-	factor  float64
+	buffer audio.Buffer
+	factor float64
 }
 
-func New(context audio.Context, buffer audio.Buffer, factor float64) transform.Transform {
-	return gain{context, buffer, factor}
+func New(buffer audio.Buffer, factor float64) transform.Transform {
+	return gain{buffer, factor}
 }
 
 func (g gain) CalculateBuffer() {
