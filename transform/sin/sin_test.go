@@ -7,7 +7,7 @@ import (
 
 	"osampler/audio"
 	"osampler/test"
-	"osampler/transform/file"
+	"osampler/transform/aiff"
 	"osampler/transform/gain"
 )
 
@@ -32,7 +32,7 @@ func TestBasics(t *testing.T) {
 	ass.Nil(err)
 	ass.NotNil(outfile)
 	filename := outfile.Name()
-	out := file.NewAiffOutput(buffer, outfile)
+	out := aiff.NewAiffOutput(buffer, outfile)
 
 	iterations := 100
 

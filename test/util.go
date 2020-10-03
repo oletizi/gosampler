@@ -2,7 +2,6 @@ package test
 
 import (
 	"io/ioutil"
-	"log"
 	"os"
 	"path"
 	"path/filepath"
@@ -24,6 +23,5 @@ func ResolvePath(subpath string) string {
 func TempFile(pattern string) (*os.File, error) {
 	timestamp := strconv.FormatInt(time.Now().Unix(), 10) + "-*"
 	timestampedPattern := strings.ReplaceAll(pattern, "*", timestamp)
-	log.Printf("pattern: %v; timestamp: %v; timestamp pattern: %v", pattern, timestamp, timestampedPattern)
 	return ioutil.TempFile("", timestampedPattern)
 }
