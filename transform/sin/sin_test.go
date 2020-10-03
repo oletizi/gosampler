@@ -13,16 +13,12 @@ import (
 
 func TestBasics(t *testing.T) {
 	ass := require.New(t)
-	sampleRate := 44100
-	bitDepth := 16
 	bufferSize := 512
-	channelCount := 1
-	context := audio.NewContext(sampleRate, bitDepth, channelCount)
-	buffer := audio.NewBuffer(context, bufferSize)
+	buffer := audio.NewBuffer(bufferSize)
 	frequency := 440
 	phase := 0
 
-	sinTransform := New(buffer, float64(frequency), float64(phase))
+	sinTransform := New(audio.NewCDContext(), buffer, float64(frequency), float64(phase))
 	ass.NotNil(sinTransform)
 
 	gainFactor := 10000.0
@@ -32,7 +28,7 @@ func TestBasics(t *testing.T) {
 	ass.Nil(err)
 	ass.NotNil(outfile)
 	filename := outfile.Name()
-	out := aiff.NewAiffOutput(buffer, outfile)
+	out := aiff.NewAiffOutput(audio.NewCDContext(), buffer, outfile)
 
 	iterations := 100
 

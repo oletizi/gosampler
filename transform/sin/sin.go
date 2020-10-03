@@ -18,14 +18,14 @@ type sin struct {
 	bufferTime  float64
 }
 
-func New(buffer audio.Buffer, frequency float64, phase float64) transform.Transform {
+func New(context audio.Context, buffer audio.Buffer, frequency float64, phase float64) transform.Transform {
 	return &sin{
 		buf:         buffer,
 		frequency:   frequency,
 		phase:       phase,
-		ctx:         buffer.Context(),
+		ctx:         context,
 		currentTime: 0,
-		bufferTime:  1 / float64(buffer.Context().SampleRate()),
+		bufferTime:  1 / float64(context.SampleRate()),
 	}
 }
 

@@ -10,8 +10,7 @@ import (
 
 func TestBasics(t *testing.T) {
 	ass := require.New(t)
-	c := audio.NewContext(44100, 16, 2)
-	b := audio.NewBuffer(c, 2)
+	b := audio.NewBuffer(2)
 	data := b.Data()
 	data[0] = 1
 	data[1] = .5
