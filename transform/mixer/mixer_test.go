@@ -141,7 +141,8 @@ func TestMixAudioFiles(t *testing.T) {
 		//fmt.Printf("bytes: %v, totalBytes: %v\n", bytes, totalBytes)
 	}
 	out.Close()
-	outfile.Close()
+	err = outfile.Close()
+	ass.Nil(err)
 
 	t.Logf("Total bytes: %v", totalBytes)
 	t.Logf("Wrote file://%v", outfile.Name())

@@ -5,8 +5,8 @@ type Note interface {
 	Name() string
 }
 type Instrument interface {
-	NoteOn(note *Note)
-	NoteOff(note *Note)
+	NoteOn(note Note)
+	NoteOff(note Note)
 }
 
 type Player interface {
