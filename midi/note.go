@@ -1,11 +1,14 @@
-package note
+package midi
 
 import (
 	"errors"
 	"strconv"
-
-	"osampler"
 )
+
+type Note interface {
+	Value() int
+	Name() string
+}
 
 type note struct {
 	value int
@@ -20,7 +23,7 @@ func (n note) Name() string {
 	return n.name
 }
 
-func New(value int) (osampler.Note, error) {
+func NewNote(value int) (Note, error) {
 	name, err := valueToName(value)
 	if err != nil {
 		return nil, err

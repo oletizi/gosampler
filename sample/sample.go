@@ -1,15 +1,9 @@
 package sample
 
-import "osampler"
+type Sample interface{}
 
-type sample struct {
-	filename string
-}
+type s struct{}
 
-func New(filename string) osampler.Sample {
-	return sample{filename: filename}
-}
-
-func (s sample) Filename() string {
-	return s.filename
+func New(filepath string) Sample {
+	return &s{}
 }

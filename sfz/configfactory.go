@@ -8,8 +8,8 @@ import (
 	"github.com/antlr/antlr4/runtime/Go/antlr"
 	"github.com/oletizi/sfz-parser/go/parser"
 
-	"osampler"
-	"osampler/note"
+	"osampler/instrument"
+	"osampler/midi"
 	"osampler/sample"
 )
 
@@ -17,8 +17,8 @@ type samplerConfig struct {
 	regions []*region
 }
 
-func (s *samplerConfig) SamplesFor(note osampler.Note) []osampler.Sample {
-	var samples []osampler.Sample
+func (s *samplerConfig) SamplesFor(note midi.Note) []sample.Sample {
+	var samples []sample.Sample
 	for i := 0; i < len(s.regions); i++ {
 		region := s.regions[i]
 		// XXX: THer MUST be a more elegant way to do this
@@ -37,10 +37,10 @@ func (s *samplerConfig) SamplesFor(note osampler.Note) []osampler.Sample {
 }
 
 type region struct {
-	sample         osampler.Sample
-	hikey          osampler.Note
-	key            osampler.Note
-	lokey          osampler.Note
+	sample         sample.Sample
+	hikey          midi.Note
+	key            midi.Note
+	lokey          midi.Note
 	hivel          int
 	lovel          int
 	pitchKeycenter int
@@ -60,7 +60,7 @@ type sfzListener struct {
 	currentOpcode string
 }
 
-func New(sfzFile string) (osampler.Config, error) {
+func New(sfzFile string) (instrument.Config, error) {
 	in, err := antlr.NewFileStream(sfzFile)
 	if err != nil {
 		return nil, err
@@ -121,10 +121,10 @@ func (s *sfzListener) ExitValue(ctx *parser.ValueContext) {
 	}
 }
 
-func resolveNote(svalue string) (osampler.Note, error) {
+func resolveNote(svalue string) (midi.Note, error) {
 	ivalue, err := strconv.Atoi(svalue)
 	if err != nil {
 		return nil, err
 	}
-	return note.New(ivalue)
+	return midi.NewNote(ivalue)
 }

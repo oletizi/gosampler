@@ -7,8 +7,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"osampler"
-	"osampler/note"
+	"osampler/midi"
 	"osampler/sample"
 	"osampler/test"
 )
@@ -20,10 +19,10 @@ func TestNewConfigFactory(t *testing.T) {
 	ass.NotNil(config)
 	ass.Nil(err)
 
-	var expected []osampler.Sample
+	var expected []sample.Sample
 	expected = append(expected, sample.New(samplePath("sample/37.wav")))
 
-	theNote, err := note.New(37)
+	theNote, err := midi.NewNote(37)
 	ass.Nil(err)
 
 	// Test for key=
@@ -33,14 +32,14 @@ func TestNewConfigFactory(t *testing.T) {
 
 	// Test for key range
 	expected[0] = sample.New(samplePath("sample/13-24.wav"))
-	theNote, _ = note.New(20)
+	theNote, _ = midi.NewNote(20)
 	samples = config.SamplesFor(theNote)
 	ass.Equal(expected, samples)
 
 	// Test for overlapping regions
 	expected[0] = sample.New(samplePath("sample/25-30.wav"))
 	expected = append(expected, sample.New(samplePath("sample/27-36.wav")))
-	theNote, _ = note.New(29)
+	theNote, _ = midi.NewNote(29)
 	samples = config.SamplesFor(theNote)
 	ass.Equal(expected, samples)
 }
