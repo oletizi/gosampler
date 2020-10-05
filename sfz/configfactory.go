@@ -10,34 +10,33 @@ import (
 
 	"osampler/instrument"
 	"osampler/midi"
-	"osampler/sample"
 )
 
 type samplerConfig struct {
 	regions []*region
 }
 
-func (s *samplerConfig) SamplesFor(note midi.Note) []sample.Sample {
-	var samples []sample.Sample
+func (s *samplerConfig) FilesFor(note midi.Note) []string {
+	var files []string
 	for i := 0; i < len(s.regions); i++ {
 		region := s.regions[i]
 		// XXX: THer MUST be a more elegant way to do this
 		lokey := region.lokey
 		key := region.key
 		hikey := region.hikey
-		theSample := region.sample
+		filepath := region.filepath
 		if (key != nil && note == key ||
 			(lokey != nil && note.Value() >= lokey.Value() &&
 				(hikey != nil && note.Value() <= hikey.Value()))) &&
-			theSample != nil {
-			samples = append(samples, theSample)
+			filepath != "" {
+			files = append(files, filepath)
 		}
 	}
-	return samples
+	return files
 }
 
 type region struct {
-	sample         sample.Sample
+	filepath       string
 	hikey          midi.Note
 	key            midi.Note
 	lokey          midi.Note
@@ -47,7 +46,7 @@ type region struct {
 }
 
 //
-// SFZ file format parsing
+// SFZ filepath format parsing
 //
 
 type sfzListener struct {
@@ -94,9 +93,8 @@ func (s *sfzListener) ExitValue(ctx *parser.ValueContext) {
 	switch s.currentOpcode {
 
 	case "sample":
-		filename := filepath.Clean(filepath.Join(s.basedir, ctx.GetText()))
-		theSample := sample.New(filename)
-		s.currentRegion.sample = theSample
+		path := filepath.Clean(filepath.Join(s.basedir, ctx.GetText()))
+		s.currentRegion.filepath = path
 
 	case "key":
 		key, err := resolveNote(ctx.GetText())
@@ -104,6 +102,7 @@ func (s *sfzListener) ExitValue(ctx *parser.ValueContext) {
 			log.Printf("Error parsing note value: %v", err)
 		}
 		s.currentRegion.key = key
+
 	case "lokey":
 		lokey, err := resolveNote(ctx.GetText())
 		if err != nil {

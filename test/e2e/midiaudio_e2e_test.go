@@ -27,7 +27,7 @@ func (s *sink) header(h smf.Header) {
 }
 
 func (s *sink) tempo(p reader.Position, bpm float64) {
-	log.Printf("Tempo: position: %v; bpm: %v", p, bpm)
+	log.Printf("tempo: position: %v; bpm: %v", p, bpm)
 }
 
 func TestMidiInToAudio(t *testing.T) {

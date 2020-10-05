@@ -8,7 +8,6 @@ import (
 	"github.com/stretchr/testify/require"
 
 	"osampler/midi"
-	"osampler/sample"
 	"osampler/test"
 )
 
@@ -19,32 +18,32 @@ func TestNewConfigFactory(t *testing.T) {
 	ass.NotNil(config)
 	ass.Nil(err)
 
-	var expected []sample.Sample
-	expected = append(expected, sample.New(samplePath("sample/37.wav")))
+	var expected []string
+	expected = append(expected, samplePath("37.wav"))
 
 	theNote, err := midi.NewNote(37)
 	ass.Nil(err)
 
-	// Test for key=
-	samples := config.SamplesFor(theNote)
-	ass.NotNil(samples)
-	ass.Equal(expected, samples)
+	// Test for key
+	files := config.FilesFor(theNote)
+	ass.NotNil(files)
+	ass.Equal(expected, files)
 
 	// Test for key range
-	expected[0] = sample.New(samplePath("sample/13-24.wav"))
+	expected[0] = samplePath("13-24.wav")
 	theNote, _ = midi.NewNote(20)
-	samples = config.SamplesFor(theNote)
-	ass.Equal(expected, samples)
+	files = config.FilesFor(theNote)
+	ass.Equal(expected, files)
 
 	// Test for overlapping regions
-	expected[0] = sample.New(samplePath("sample/25-30.wav"))
-	expected = append(expected, sample.New(samplePath("sample/27-36.wav")))
+	expected[0] = samplePath("25-30.wav")
+	expected = append(expected, samplePath("27-36.wav"))
 	theNote, _ = midi.NewNote(29)
-	samples = config.SamplesFor(theNote)
-	ass.Equal(expected, samples)
+	files = config.FilesFor(theNote)
+	ass.Equal(expected, files)
 }
 
 func samplePath(path string) string {
-	rv := test.ResolvePath(filepath.Join("sfz", path))
+	rv := test.ResolvePath(filepath.Join("sfz", "sample", path))
 	return rv
 }
