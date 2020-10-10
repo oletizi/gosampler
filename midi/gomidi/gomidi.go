@@ -41,6 +41,7 @@ func NewInstrumentAdapter(channel int, i instrument.Instrument) *InstrumentAdapt
 	c := &context{}
 	adapter := &InstrumentAdaptor{nil, c, channel, i}
 	var r = reader.New(
+		reader.NoLogger(),
 		reader.SMFHeader(adapter.header),
 		reader.NoteOn(adapter.noteOn),
 		reader.NoteOff(adapter.noteOff),

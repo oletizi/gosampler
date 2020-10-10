@@ -27,7 +27,8 @@ func NewInstrument(config instrument.Config) instrument.Instrument {
 }
 
 func (i *inst) NoteOn(c midi.Context, note midi.Note, channel, velocity int) {
-	log.Printf("NOTE ON: I should play these files: %v: ", i.config.FilesFor(note))
+	log.Printf("NOTE ON: note: %v, channel: %v, velocity: %v, I should play these files: %v: ",
+		note, channel, velocity, i.config.FilesFor(note))
 }
 
 func (i *inst) NoteOff(c midi.Context, note midi.Note, channel, velocity int) {

@@ -36,8 +36,13 @@ github.com/mattn/go-runewidth v0.0.4/go.mod h1:LwmH8dsx7+W8Uxz3IHJYH5QSwggIsqBzp
 github.com/mewkiz/flac v1.0.5/go.mod h1:EHZNU32dMF6alpurYyKHDLYpW1lYpBZ5WrXi/VuNIGs=
 github.com/mrnikho/yingo v0.0.0-20160422163436-d60704a7faa2 h1:HW/q+O8V+stW3CWzXl6HtmG/8Ik9DQyrQtKMZCSt5G0=
 github.com/mrnikho/yingo v0.0.0-20160422163436-d60704a7faa2/go.mod h1:sovuamXJb0LGNZ2Fbq1KbCWENBaO0BjrEVTyArjJtYU=
-github.com/oletizi/sfz-parser v0.0.0-20200929210351-19fd8d01ede8 h1:Z29oqB/VpBgaqC/QkXxdYrGoB8LnhliOimNklax4orA=
-github.com/oletizi/sfz-parser v0.0.0-20200929210351-19fd8d01ede8/go.mod h1:ZScb3XIV1QvBi3wZ4aN0nTMOOeRyTxBoOYVwx44wwlc=
+github.com/oletizi/sfz-parser v1.0.1 h1:lY1c3WIlC/DdNWviEUVfP5o+heZD2gra1rU4GjZzz7o=
+github.com/oletizi/sfz-parser v1.0.2-0.20201010204754-1b5dca71c5f0 h1:U+oFHc7ENFztDb1dAsdBOIR46ITbD+x4L8iwdxSfXLs=
+github.com/oletizi/sfz-parser v1.0.2-0.20201010204754-1b5dca71c5f0/go.mod h1:ZScb3XIV1QvBi3wZ4aN0nTMOOeRyTxBoOYVwx44wwlc=
+github.com/oletizi/sfz-parser v1.0.2 h1:GXbtCSE8D1bNqre2XiFr9uYQIjEZq4d191TpbJvd24I=
+github.com/oletizi/sfz-parser v1.0.2/go.mod h1:ZScb3XIV1QvBi3wZ4aN0nTMOOeRyTxBoOYVwx44wwlc=
+github.com/oletizi/sfz-parser v1.0.4 h1:/zNpld9JtY73MgIyMZ6jWJJnRfEF0hxkq1LAdOSCbXg=
+github.com/oletizi/sfz-parser v1.0.4/go.mod h1:6GL6vG9v0qaySSfahCzRopMQ7aJ1NqQCs4HV4DXM9bY=
 github.com/pkg/errors v0.8.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=

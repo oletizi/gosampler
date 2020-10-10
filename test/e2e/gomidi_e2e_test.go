@@ -14,7 +14,8 @@ import (
 func TestE2E(t *testing.T) {
 	ass := require.New(t)
 	midifile := test.ResolvePath("midi/jesu.mid")
-	config, err := sfz.New(midifile)
+	sfzFile := test.ResolvePath("sfz/piano/piano.sfz")
+	config, err := sfz.New(sfzFile)
 	ass.Nil(err)
 	instrument := sample.NewInstrument(config)
 	channel := 0

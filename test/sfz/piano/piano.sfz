@@ -1,0 +1,323 @@
+//©2015-2016 Rudi Fiasco
+//rev.22.08.2016
+
+<global>
+pan=16
+
+//note on dampened
+
+<group> group=0 trigger=attack ampeg_release=0.5 volume=9
+<region> sample=K18\A0.pp.wav lovel=1 hivel=22 lokey=21 hikey=22 pitch_keycenter=21
+<region> sample=K18\A0.p.wav lovel=23 hivel=43 lokey=21 hikey=22 pitch_keycenter=21
+<region> sample=K18\A0.mf.wav lovel=44 hivel=64 lokey=21 hikey=22 pitch_keycenter=21
+<region> sample=K18\A0.f.wav lovel=65 hivel=85 lokey=21 hikey=22 pitch_keycenter=21
+<region> sample=K18\A0.ff.wav lovel=86 hivel=106 lokey=21 hikey=22 pitch_keycenter=21
+<region> sample=K18\A0.sf.wav lovel=107 hivel=127 lokey=21 hikey=22 pitch_keycenter=21
+
+<region> sample=K18\C1.pp.wav lovel=1 hivel=22 lokey=23 hikey=25 pitch_keycenter=24
+<region> sample=K18\C1.p.wav lovel=23 hivel=43 lokey=23 hikey=25 pitch_keycenter=24
+<region> sample=K18\C1.mf.wav lovel=44 hivel=64 lokey=23 hikey=25 pitch_keycenter=24
+<region> sample=K18\C1.f.wav lovel=65 hivel=85 lokey=23 hikey=25 pitch_keycenter=24
+<region> sample=K18\C1.ff.wav lovel=86 hivel=106 lokey=23 hikey=25 pitch_keycenter=24
+<region> sample=K18\C1.sf.wav lovel=107 hivel=127 lokey=23 hikey=25 pitch_keycenter=24
+
+<region> sample=K18\D#1.pp.wav lovel=1 hivel=22 lokey=26 hikey=28 pitch_keycenter=27
+<region> sample=K18\D#1.p.wav lovel=23 hivel=43 lokey=26 hikey=28 pitch_keycenter=27
+<region> sample=K18\D#1.mf.wav lovel=44 hivel=64 lokey=26 hikey=28 pitch_keycenter=27
+<region> sample=K18\D#1.f.wav lovel=65 hivel=85 lokey=26 hikey=28 pitch_keycenter=27
+<region> sample=K18\D#1.ff.wav lovel=86 hivel=106 lokey=26 hikey=28 pitch_keycenter=27
+<region> sample=K18\D#1.sf.wav lovel=107 hivel=127 lokey=26 hikey=28 pitch_keycenter=27
+
+<region> sample=K18\F#1.pp.wav lovel=1 hivel=22 lokey=29 hikey=31 pitch_keycenter=30 tune=-10
+<region> sample=K18\F#1.p.wav lovel=23 hivel=43 lokey=29 hikey=31 pitch_keycenter=30 tune=-10
+<region> sample=K18\F#1.mf.wav lovel=44 hivel=64 lokey=29 hikey=31 pitch_keycenter=30 tune=-10
+<region> sample=K18\F#1.f.wav lovel=65 hivel=85 lokey=29 hikey=31 pitch_keycenter=30 tune=-10
+<region> sample=K18\F#1.ff.wav lovel=86 hivel=106 lokey=29 hikey=31 pitch_keycenter=30 tune=-10
+<region> sample=K18\F#1.sf.wav lovel=107 hivel=127 lokey=29 hikey=31 pitch_keycenter=30 tune=-10
+
+<region> sample=K18\A1.pp.wav lovel=1 hivel=22 lokey=32 hikey=34 pitch_keycenter=33 tune=8
+<region> sample=K18\A1.p.wav lovel=23 hivel=43 lokey=32 hikey=34 pitch_keycenter=33 tune=8
+<region> sample=K18\A1.mf.wav lovel=44 hivel=64 lokey=32 hikey=34 pitch_keycenter=33 tune=8
+<region> sample=K18\A1.f.wav lovel=65 hivel=85 lokey=32 hikey=34 pitch_keycenter=33 tune=8
+<region> sample=K18\A1.ff.wav lovel=86 hivel=106 lokey=32 hikey=34 pitch_keycenter=33 tune=8
+<region> sample=K18\A1.sf.wav lovel=107 hivel=127 lokey=32 hikey=34 pitch_keycenter=33 tune=8
+
+<region> sample=K18\C2.pp.wav lovel=1 hivel=22 lokey=35 hikey=37 pitch_keycenter=36 tune=8
+<region> sample=K18\C2.p.wav lovel=23 hivel=43 lokey=35 hikey=37 pitch_keycenter=36 tune=8
+<region> sample=K18\C2.mf.wav lovel=44 hivel=64 lokey=35 hikey=37 pitch_keycenter=36 tune=8
+<region> sample=K18\C2.f.wav lovel=65 hivel=85 lokey=35 hikey=37 pitch_keycenter=36 tune=8
+<region> sample=K18\C2.ff.wav lovel=86 hivel=106 lokey=35 hikey=37 pitch_keycenter=36 tune=8
+<region> sample=K18\C2.sf.wav lovel=107 hivel=127 lokey=35 hikey=37 pitch_keycenter=36 tune=8
+
+<region> sample=K18\D#2.pp.wav lovel=1 hivel=22 lokey=38 hikey=40 pitch_keycenter=39 tune=9
+<region> sample=K18\D#2.p.wav lovel=23 hivel=43 lokey=38 hikey=40 pitch_keycenter=39 tune=9
+<region> sample=K18\D#2.mf.wav lovel=44 hivel=64 lokey=38 hikey=40 pitch_keycenter=39 tune=9
+<region> sample=K18\D#2.f.wav lovel=65 hivel=85 lokey=38 hikey=40 pitch_keycenter=39 tune=9
+<region> sample=K18\D#2.ff.wav lovel=86 hivel=106 lokey=38 hikey=40 pitch_keycenter=39 tune=9
+<region> sample=K18\D#2.sf.wav lovel=107 hivel=127 lokey=38 hikey=40 pitch_keycenter=39 tune=9
+
+<region> sample=K18\F#2.pp.wav lovel=1 hivel=22 lokey=41 hikey=43 pitch_keycenter=42 tune=8
+<region> sample=K18\F#2.p.wav lovel=23 hivel=43 lokey=41 hikey=43 pitch_keycenter=42 tune=8
+<region> sample=K18\F#2.mf.wav lovel=44 hivel=64 lokey=41 hikey=43 pitch_keycenter=42 tune=8
+<region> sample=K18\F#2.f.wav lovel=65 hivel=85 lokey=41 hikey=43 pitch_keycenter=42 tune=8
+<region> sample=K18\F#2.ff.wav lovel=86 hivel=106 lokey=41 hikey=43 pitch_keycenter=42 tune=8
+<region> sample=K18\F#2.sf.wav lovel=107 hivel=127 lokey=41 hikey=43 pitch_keycenter=42 tune=8
+
+<region> sample=K18\A2.pp.wav lovel=1 hivel=22 lokey=44 hikey=46 pitch_keycenter=45 tune=4
+<region> sample=K18\A2.p.wav lovel=23 hivel=43 lokey=44 hikey=46 pitch_keycenter=45 tune=4
+<region> sample=K18\A2.mf.wav lovel=44 hivel=64 lokey=44 hikey=46 pitch_keycenter=45 tune=4
+<region> sample=K18\A2.f.wav lovel=65 hivel=85 lokey=44 hikey=46 pitch_keycenter=45 tune=4
+<region> sample=K18\A2.ff.wav lovel=86 hivel=106 lokey=44 hikey=46 pitch_keycenter=45 tune=4
+<region> sample=K18\A2.sf.wav lovel=107 hivel=127 lokey=44 hikey=46 pitch_keycenter=45 tune=4
+
+<region> sample=K18\C3.pp.wav lovel=1 hivel=22 lokey=47 hikey=49 pitch_keycenter=48 tune=4
+<region> sample=K18\C3.p.wav lovel=23 hivel=43 lokey=47 hikey=49 pitch_keycenter=48 tune=4
+<region> sample=K18\C3.mf.wav lovel=44 hivel=64 lokey=47 hikey=49 pitch_keycenter=48 tune=4
+<region> sample=K18\C3.f.wav lovel=65 hivel=85 lokey=47 hikey=49 pitch_keycenter=48 tune=4
+<region> sample=K18\C3.ff.wav lovel=86 hivel=106 lokey=47 hikey=49 pitch_keycenter=48 tune=4
+<region> sample=K18\C3.sf.wav lovel=107 hivel=127 lokey=47 hikey=49 pitch_keycenter=48 tune=4
+
+<region> sample=K18\D#3.pp.wav lovel=1 hivel=22 lokey=50 hikey=52 pitch_keycenter=51 tune=8
+<region> sample=K18\D#3.p.wav lovel=23 hivel=43 lokey=50 hikey=52 pitch_keycenter=51 tune=8
+<region> sample=K18\D#3.mf.wav lovel=44 hivel=64 lokey=50 hikey=52 pitch_keycenter=51 tune=8
+<region> sample=K18\D#3.f.wav lovel=65 hivel=85 lokey=50 hikey=52 pitch_keycenter=51 tune=8
+<region> sample=K18\D#3.ff.wav lovel=86 hivel=106 lokey=50 hikey=52 pitch_keycenter=51 tune=8
+<region> sample=K18\D#3.sf.wav lovel=107 hivel=127 lokey=50 hikey=52 pitch_keycenter=51 tune=8
+
+<region> sample=K18\F#3.pp.wav lovel=1 hivel=22 lokey=53 hikey=55 pitch_keycenter=54 tune=-8 offset=400
+<region> sample=K18\F#3.p.wav lovel=23 hivel=43 lokey=53 hikey=55 pitch_keycenter=54 tune=-8 offset=400
+<region> sample=K18\F#3.mf.wav lovel=44 hivel=64 lokey=53 hikey=55 pitch_keycenter=54 tune=-8 offset=400
+<region> sample=K18\F#3.f.wav lovel=65 hivel=85 lokey=53 hikey=55 pitch_keycenter=54 tune=-8 offset=400
+<region> sample=K18\F#3.ff.wav lovel=86 hivel=106 lokey=53 hikey=55 pitch_keycenter=54 tune=-8 offset=400
+<region> sample=K18\F#3.sf.wav lovel=107 hivel=127 lokey=53 hikey=55 pitch_keycenter=54 tune=-8 offset=400
+
+<region> sample=K18\A3.pp.wav lovel=1 hivel=22 lokey=56 hikey=58 pitch_keycenter=57 offset=400
+<region> sample=K18\A3.p.wav lovel=23 hivel=43 lokey=56 hikey=58 pitch_keycenter=57 offset=400
+<region> sample=K18\A3.mf.wav lovel=44 hivel=64 lokey=56 hikey=58 pitch_keycenter=57 offset=400
+<region> sample=K18\A3.f.wav lovel=65 hivel=85 lokey=56 hikey=58 pitch_keycenter=57 offset=400
+<region> sample=K18\A3.ff.wav lovel=86 hivel=106 lokey=56 hikey=58 pitch_keycenter=57 offset=400
+<region> sample=K18\A3.sf.wav lovel=107 hivel=127 lokey=56 hikey=58 pitch_keycenter=57 offset=400
+
+<region> sample=K18\C4.pp.wav lovel=1 hivel=22 lokey=59 hikey=61 pitch_keycenter=60
+<region> sample=K18\C4.p.wav lovel=23 hivel=43 lokey=59 hikey=61 pitch_keycenter=60
+<region> sample=K18\C4.mf.wav lovel=44 hivel=64 lokey=59 hikey=61 pitch_keycenter=60
+<region> sample=K18\C4.f.wav lovel=65 hivel=85 lokey=59 hikey=61 pitch_keycenter=60
+<region> sample=K18\C4.ff.wav lovel=86 hivel=106 lokey=59 hikey=61 pitch_keycenter=60
+<region> sample=K18\C4.sf.wav lovel=107 hivel=127 lokey=59 hikey=61 pitch_keycenter=60
+
+<region> sample=K18\D#4.pp.wav lovel=1 hivel=22 lokey=62 hikey=64 pitch_keycenter=63
+<region> sample=K18\D#4.p.wav lovel=23 hivel=43 lokey=62 hikey=64 pitch_keycenter=63
+<region> sample=K18\D#4.mf.wav lovel=44 hivel=64 lokey=62 hikey=64 pitch_keycenter=63
+<region> sample=K18\D#4.f.wav lovel=65 hivel=85 lokey=62 hikey=64 pitch_keycenter=63
+<region> sample=K18\D#4.ff.wav lovel=86 hivel=106 lokey=62 hikey=64 pitch_keycenter=63
+<region> sample=K18\D#4.sf.wav lovel=107 hivel=127 lokey=62 hikey=64 pitch_keycenter=63
+
+<region> sample=K18\F#4.pp.wav lovel=1 hivel=22 lokey=65 hikey=67 pitch_keycenter=66 offset=200
+<region> sample=K18\F#4.p.wav lovel=23 hivel=43 lokey=65 hikey=67 pitch_keycenter=66 offset=200
+<region> sample=K18\F#4.mf.wav lovel=44 hivel=64 lokey=65 hikey=67 pitch_keycenter=66 offset=200
+<region> sample=K18\F#4.f.wav lovel=65 hivel=85 lokey=65 hikey=67 pitch_keycenter=66 offset=200
+<region> sample=K18\F#4.ff.wav lovel=86 hivel=106 lokey=65 hikey=67 pitch_keycenter=66 offset=200
+<region> sample=K18\F#4.sf.wav lovel=107 hivel=127 lokey=65 hikey=67 pitch_keycenter=66 offset=200
+
+<region> sample=K18\A4.pp.wav lovel=1 hivel=22 lokey=68 hikey=70 pitch_keycenter=69
+<region> sample=K18\A4.p.wav lovel=23 hivel=43 lokey=68 hikey=70 pitch_keycenter=69
+<region> sample=K18\A4.mf.wav lovel=44 hivel=64 lokey=68 hikey=70 pitch_keycenter=69
+<region> sample=K18\A4.f.wav lovel=65 hivel=85 lokey=68 hikey=70 pitch_keycenter=69
+<region> sample=K18\A4.ff.wav lovel=86 hivel=106 lokey=68 hikey=70 pitch_keycenter=69
+<region> sample=K18\A4.sf.wav lovel=107 hivel=127 lokey=68 hikey=70 pitch_keycenter=69
+
+<region> sample=K18\C5.pp.wav lovel=1 hivel=22 lokey=71 hikey=73 pitch_keycenter=72 tune=4
+<region> sample=K18\C5.p.wav lovel=23 hivel=43 lokey=71 hikey=73 pitch_keycenter=72 tune=4
+<region> sample=K18\C5.mf.wav lovel=44 hivel=64 lokey=71 hikey=73 pitch_keycenter=72 tune=4
+<region> sample=K18\C5.f.wav lovel=65 hivel=85 lokey=71 hikey=73 pitch_keycenter=72 tune=4
+<region> sample=K18\C5.ff.wav lovel=86 hivel=106 lokey=71 hikey=73 pitch_keycenter=72 tune=4
+<region> sample=K18\C5.sf.wav lovel=107 hivel=127 lokey=71 hikey=73 pitch_keycenter=72 tune=4
+
+<region> sample=K18\D#5.pp.wav lovel=1 hivel=22 lokey=74 hikey=76 pitch_keycenter=75
+<region> sample=K18\D#5.p.wav lovel=23 hivel=43 lokey=74 hikey=76 pitch_keycenter=75
+<region> sample=K18\D#5.mf.wav lovel=44 hivel=64 lokey=74 hikey=76 pitch_keycenter=75
+<region> sample=K18\D#5.f.wav lovel=65 hivel=85 lokey=74 hikey=76 pitch_keycenter=75
+<region> sample=K18\D#5.ff.wav lovel=86 hivel=106 lokey=74 hikey=76 pitch_keycenter=75
+<region> sample=K18\D#5.sf.wav lovel=107 hivel=127 lokey=74 hikey=76 pitch_keycenter=75
+
+<region> sample=K18\F#5.pp.wav lovel=1 hivel=22 lokey=77 hikey=79 pitch_keycenter=78 tune=-4
+<region> sample=K18\F#5.p.wav lovel=23 hivel=43 lokey=77 hikey=79 pitch_keycenter=78 tune=-4
+<region> sample=K18\F#5.mf.wav lovel=44 hivel=64 lokey=77 hikey=79 pitch_keycenter=78 tune=-4
+<region> sample=K18\F#5.f.wav lovel=65 hivel=85 lokey=77 hikey=79 pitch_keycenter=78 tune=-4
+<region> sample=K18\F#5.ff.wav lovel=86 hivel=106 lokey=77 hikey=79 pitch_keycenter=78 tune=-4
+<region> sample=K18\F#5.sf.wav lovel=107 hivel=127 lokey=77 hikey=79 pitch_keycenter=78 tune=-4
+
+<region> sample=K18\A5.pp.wav lovel=1 hivel=22 lokey=80 hikey=82 pitch_keycenter=81 offset=400
+<region> sample=K18\A5.p.wav lovel=23 hivel=43 lokey=80 hikey=82 pitch_keycenter=81 offset=400
+<region> sample=K18\A5.mf.wav lovel=44 hivel=64 lokey=80 hikey=82 pitch_keycenter=81 offset=400
+<region> sample=K18\A5.f.wav lovel=65 hivel=85 lokey=80 hikey=82 pitch_keycenter=81 offset=400
+<region> sample=K18\A5.ff.wav lovel=86 hivel=106 lokey=80 hikey=82 pitch_keycenter=81 offset=400
+<region> sample=K18\A5.sf.wav lovel=107 hivel=127 lokey=80 hikey=82 pitch_keycenter=81 offset=400
+
+<region> sample=K18\C6.pp.wav lovel=1 hivel=22 lokey=83 hikey=85 pitch_keycenter=84 tune=8
+<region> sample=K18\C6.p.wav lovel=23 hivel=43 lokey=83 hikey=85 pitch_keycenter=84 tune=8
+<region> sample=K18\C6.mf.wav lovel=44 hivel=64 lokey=83 hikey=85 pitch_keycenter=84 tune=8
+<region> sample=K18\C6.f.wav lovel=65 hivel=85 lokey=83 hikey=85 pitch_keycenter=84 tune=8
+<region> sample=K18\C6.ff.wav lovel=86 hivel=106 lokey=83 hikey=85 pitch_keycenter=84 tune=8
+<region> sample=K18\C6.sf.wav lovel=107 hivel=127 lokey=83 hikey=85 pitch_keycenter=84 tune=8
+
+<region> sample=K18\D#6.pp.wav lovel=1 hivel=22 lokey=86 hikey=88 pitch_keycenter=87 tune=-4 offset=100
+<region> sample=K18\D#6.p.wav lovel=23 hivel=43 lokey=86 hikey=88 pitch_keycenter=87 tune=-4 offset=100
+<region> sample=K18\D#6.mf.wav lovel=44 hivel=64 lokey=86 hikey=88 pitch_keycenter=87 tune=-4 offset=100
+<region> sample=K18\D#6.f.wav lovel=65 hivel=85 lokey=86 hikey=88 pitch_keycenter=87 tune=-4 offset=100
+<region> sample=K18\D#6.ff.wav lovel=86 hivel=106 lokey=86 hikey=88 pitch_keycenter=87 tune=-4 offset=100
+<region> sample=K18\D#6.sf.wav lovel=107 hivel=127 lokey=86 hikey=88 pitch_keycenter=87 tune=-4 offset=100
+
+//note on undampened
+
+<group> group=1 trigger=attack ampeg_release=6 volume=9
+<region> sample=K18\F#6.pp.wav lovel=1 hivel=22 lokey=89 hikey=91 pitch_keycenter=90 tune=-14
+<region> sample=K18\F#6.p.wav lovel=23 hivel=43 lokey=89 hikey=91 pitch_keycenter=90 tune=-14
+<region> sample=K18\F#6.mf.wav lovel=44 hivel=64 lokey=89 hikey=91 pitch_keycenter=90 tune=-14
+<region> sample=K18\F#6.f.wav lovel=65 hivel=85 lokey=89 hikey=91 pitch_keycenter=90 tune=-14
+<region> sample=K18\F#6.ff.wav lovel=86 hivel=106 lokey=89 hikey=91 pitch_keycenter=90 tune=-14
+<region> sample=K18\F#6.sf.wav lovel=107 hivel=127 lokey=89 hikey=91 pitch_keycenter=90 tune=-14
+
+<region> sample=K18\A6.pp.wav lovel=1 hivel=22 lokey=92 hikey=94 pitch_keycenter=93 offset=200
+<region> sample=K18\A6.p.wav lovel=23 hivel=43 lokey=92 hikey=94 pitch_keycenter=93 offset=200
+<region> sample=K18\A6.mf.wav lovel=44 hivel=64 lokey=92 hikey=94 pitch_keycenter=93 offset=200
+<region> sample=K18\A6.f.wav lovel=65 hivel=85 lokey=92 hikey=94 pitch_keycenter=93 offset=200
+<region> sample=K18\A6.ff.wav lovel=86 hivel=106 lokey=92 hikey=94 pitch_keycenter=93 offset=200
+<region> sample=K18\A6.sf.wav lovel=107 hivel=127 lokey=92 hikey=94 pitch_keycenter=93 offset=200
+
+<region> sample=K18\C7.pp.wav lovel=1 hivel=22 lokey=95 hikey=97 pitch_keycenter=96 tune=10 offset=200
+<region> sample=K18\C7.p.wav lovel=23 hivel=43 lokey=95 hikey=97 pitch_keycenter=96 tune=10 offset=200
+<region> sample=K18\C7.mf.wav lovel=44 hivel=64 lokey=95 hikey=97 pitch_keycenter=96 tune=10 offset=200
+<region> sample=K18\C7.f.wav lovel=65 hivel=85 lokey=95 hikey=97 pitch_keycenter=96 tune=10 offset=200
+<region> sample=K18\C7.ff.wav lovel=86 hivel=106 lokey=95 hikey=97 pitch_keycenter=96 tune=10 offset=200
+<region> sample=K18\C7.sf.wav lovel=107 hivel=127 lokey=95 hikey=97 pitch_keycenter=96 tune=10 offset=200
+
+<region> sample=K18\D#7.pp.wav lovel=1 hivel=22 lokey=98 hikey=100 pitch_keycenter=99 offset=200
+<region> sample=K18\D#7.p.wav lovel=23 hivel=43 lokey=98 hikey=100 pitch_keycenter=99 offset=200
+<region> sample=K18\D#7.mf.wav lovel=44 hivel=64 lokey=98 hikey=100 pitch_keycenter=99 offset=200
+<region> sample=K18\D#7.f.wav lovel=65 hivel=85 lokey=98 hikey=100 pitch_keycenter=99 offset=200
+<region> sample=K18\D#7.ff.wav lovel=86 hivel=106 lokey=98 hikey=100 pitch_keycenter=99 offset=200
+<region> sample=K18\D#7.sf.wav lovel=107 hivel=127 lokey=98 hikey=100 pitch_keycenter=99 offset=200
+
+<region> sample=K18\F#7.pp.wav lovel=1 hivel=22 lokey=101 hikey=103 pitch_keycenter=102
+<region> sample=K18\F#7.p.wav lovel=23 hivel=43 lokey=101 hikey=103 pitch_keycenter=102
+<region> sample=K18\F#7.mf.wav lovel=44 hivel=64 lokey=101 hikey=103 pitch_keycenter=102
+<region> sample=K18\F#7.f.wav lovel=65 hivel=85 lokey=101 hikey=103 pitch_keycenter=102
+<region> sample=K18\F#7.ff.wav lovel=86 hivel=106 lokey=101 hikey=103 pitch_keycenter=102
+<region> sample=K18\F#7.sf.wav lovel=107 hivel=127 lokey=101 hikey=103 pitch_keycenter=102
+
+<region> sample=K18\A7.pp.wav lovel=1 hivel=22 lokey=104 hikey=106 pitch_keycenter=105
+<region> sample=K18\A7.p.wav lovel=23 hivel=43 lokey=104 hikey=106 pitch_keycenter=105
+<region> sample=K18\A7.mf.wav lovel=44 hivel=64 lokey=104 hikey=106 pitch_keycenter=105
+<region> sample=K18\A7.f.wav lovel=65 hivel=85 lokey=104 hikey=106 pitch_keycenter=105
+<region> sample=K18\A7.ff.wav lovel=86 hivel=106 lokey=104 hikey=106 pitch_keycenter=105
+<region> sample=K18\A7.sf.wav lovel=107 hivel=127 lokey=104 hikey=106 pitch_keycenter=105
+
+<region> sample=K18\C8.pp.wav lovel=1 hivel=22 lokey=107 hikey=108 pitch_keycenter=108
+<region> sample=K18\C8.p.wav lovel=23 hivel=43 lokey=107 hikey=108 pitch_keycenter=108
+<region> sample=K18\C8.mf.wav lovel=44 hivel=64 lokey=107 hikey=108 pitch_keycenter=108
+<region> sample=K18\C8.f.wav lovel=65 hivel=85 lokey=107 hikey=108 pitch_keycenter=108
+<region> sample=K18\C8.ff.wav lovel=86 hivel=106 lokey=107 hikey=108 pitch_keycenter=108
+<region> sample=K18\C8.sf.wav lovel=107 hivel=127 lokey=107 hikey=108 pitch_keycenter=108
+
+//note off dampened
+
+<group> group=2 trigger=release polyphony=1 volume=-3
+<region> sample=K18\A0.rel.wav lokey=21 hikey=22 pitch_keytrack=0 amp_veltrack=50
+
+<group> group=3 trigger=release polyphony=1 volume=-3
+<region> sample=K18\C1.rel.wav lokey=23 hikey=25 pitch_keytrack=0 amp_veltrack=50
+
+<group> group=4 trigger=release polyphony=1 volume=-3
+<region> sample=K18\D#1.rel.wav lokey=26 hikey=28 pitch_keytrack=0 amp_veltrack=50
+
+<group> group=5 trigger=release polyphony=1 volume=-3
+<region> sample=K18\F#1.rel.wav lokey=29 hikey=31 pitch_keytrack=0 amp_veltrack=50
+
+<group> group=6 trigger=release polyphony=1 volume=-3
+<region> sample=K18\A1.rel.wav lokey=32 hikey=34 pitch_keytrack=0 amp_veltrack=50
+
+<group> group=7 trigger=release polyphony=1 volume=-3
+<region> sample=K18\C2.rel.wav lokey=35 hikey=37 pitch_keytrack=0 amp_veltrack=50
+
+<group> group=8 trigger=release polyphony=1 volume=-3
+<region> sample=K18\D#2.rel.wav lokey=38 hikey=40 pitch_keytrack=0 amp_veltrack=50
+
+<group> group=9 trigger=release polyphony=1 volume=-3
+<region> sample=K18\F#2.rel.wav lokey=41 hikey=43 pitch_keytrack=0 amp_veltrack=50
+
+<group> group=10 trigger=release polyphony=1 volume=-3
+<region> sample=K18\A2.rel.wav lokey=44 hikey=46 pitch_keytrack=0 amp_veltrack=50
+
+<group> group=11 trigger=release polyphony=1 volume=-3
+<region> sample=K18\C3.rel.wav lokey=47 hikey=49 pitch_keytrack=0 amp_veltrack=50
+
+<group> group=12 trigger=release polyphony=1 volume=-3
+<region> sample=K18\D#3.rel.wav lokey=50 hikey=52 pitch_keytrack=0 amp_veltrack=50
+
+<group> group=13 trigger=release polyphony=1 volume=-3
+<region> sample=K18\F#3.rel.wav lokey=53 hikey=55 pitch_keytrack=0 amp_veltrack=50
+
+<group> group=14 trigger=release polyphony=1 volume=-3
+<region> sample=K18\A3.rel.wav lokey=56 hikey=58 pitch_keytrack=0 amp_veltrack=50
+
+<group> group=15 trigger=release polyphony=1 volume=-3
+<region> sample=K18\C4.rel.wav lokey=59 hikey=61 pitch_keytrack=0 amp_veltrack=50
+
+<group> group=16 trigger=release polyphony=1 volume=-3
+<region> sample=K18\D#4.rel.wav lokey=62 hikey=64 pitch_keytrack=0 amp_veltrack=50
+
+<group> group=17 trigger=release polyphony=1 volume=-3
+<region> sample=K18\F#4.rel.wav lokey=65 hikey=67 pitch_keytrack=0 amp_veltrack=50
+
+<group> group=18 trigger=release polyphony=1 volume=-3
+<region> sample=K18\A4.rel.wav lokey=68 hikey=70 pitch_keytrack=0 amp_veltrack=50
+
+<group> group=19 trigger=release polyphony=1 volume=-3
+<region> sample=K18\C5.rel.wav lokey=71 hikey=73 pitch_keytrack=0 amp_veltrack=50
+
+<group> group=20 trigger=release polyphony=1 volume=-3
+<region> sample=K18\D#5.rel.wav lokey=74 hikey=76 pitch_keytrack=0 amp_veltrack=50
+
+<group> group=21 trigger=release polyphony=1 volume=-3
+<region> sample=K18\F#5.rel.wav lokey=77 hikey=79 pitch_keytrack=0 amp_veltrack=50
+
+<group> group=22 trigger=release polyphony=1 volume=-3
+<region> sample=K18\A5.rel.wav lokey=80 hikey=82 pitch_keytrack=0 amp_veltrack=50
+
+<group> group=23 trigger=release polyphony=1 volume=-3
+<region> sample=K18\C6.rel.wav lokey=83 hikey=85 pitch_keytrack=0 amp_veltrack=50
+
+<group> group=24 trigger=release polyphony=1 volume=-3
+<region> sample=K18\D#6.rel.wav lokey=86 hikey=88 pitch_keytrack=0 amp_veltrack=50
+
+//note off undampened
+
+<group> group=25 trigger=release polyphony=1 volume=-3
+<region> sample=K18\F#6.rel.wav lokey=89 hikey=91 pitch_keytrack=0 amp_veltrack=50
+
+<group> group=26 trigger=release polyphony=1 volume=-3
+<region> sample=K18\A6.rel.wav lokey=92 hikey=94 pitch_keytrack=0 amp_veltrack=50
+
+<group> group=27 trigger=release polyphony=1 volume=-3
+<region> sample=K18\C7.rel.wav lokey=95 hikey=97 pitch_keytrack=0 amp_veltrack=50
+
+<group> group=28 trigger=release polyphony=1 volume=-3
+<region> sample=K18\D#7.rel.wav lokey=98 hikey=100 pitch_keytrack=0 amp_veltrack=50
+
+<group> group=29 trigger=release polyphony=1 volume=-3
+<region> sample=K18\F#7.rel.wav lokey=101 hikey=103 pitch_keytrack=0 amp_veltrack=50
+
+<group> group=30 trigger=release polyphony=1 volume=-3
+<region> sample=K18\A7.rel.wav lokey=104 hikey=106 pitch_keytrack=0 amp_veltrack=50
+
+<group> group=31 trigger=release polyphony=1 volume=-3
+<region> sample=K18\C8.rel.wav lokey=107 hikey=108 pitch_keytrack=0 amp_veltrack=50
+
+//sustain pedal
+
+<group> group=32 lokey=-1 on_locc64=126 on_hicc64=127 off_by=33 volume=-9
+<region> sample=K18\pedal.on.wav
+
+<group> group=33 lokey=-1 on_locc64=0 on_hicc64=1 volume=-9
+<region> sample=K18\pedal.off.wav

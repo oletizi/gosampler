@@ -6,7 +6,7 @@ import (
 	"strconv"
 
 	"github.com/antlr/antlr4/runtime/Go/antlr"
-	"github.com/oletizi/sfz-parser/go/parser"
+	"github.com/oletizi/sfz-parser/parser"
 
 	"osampler/instrument"
 	"osampler/midi"
