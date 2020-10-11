@@ -23,4 +23,8 @@ jobs:
 
       # specify any bash command here prefixed with `run: `
       - run: go get -v -t -d ./...
-      - run: go test -v ./...
+      - run: go test -v -coverprofile .coverage.txt ./...
+      - run:
+          name: Upload coverage
+          command: bash <(curl -s https://codecov.io/bash) -f .coverage.txt
+          when: on_success
