@@ -12,8 +12,7 @@ build:
 	go build ./...
 
 test:
-	go test ./... -v -coverprofile $(COVER_FILE)
-	go tool cover -func $(COVER_FILE)
+	go test ./... -v -coverprofile $(COVER_FILE) && go tool cover -func $(COVER_FILE)
 
 clean:
 	$(GOCLEAN)
