@@ -17,8 +17,7 @@ test:
 
 clean:
 	$(GOCLEAN)
-	rm -f $(BINARY_NAME) || true
-	rm $(COVER_FILE) || true
+	rm -f $(BINARY_NAME) || true &&	rm $(COVER_FILE) || true
 
 install:
 	go install ./...
